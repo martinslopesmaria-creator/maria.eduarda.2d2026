@@ -1,0 +1,125 @@
+/* ==========================================================================
+   1. CONFIGURAÇÕES GERAIS E VARIÁVEIS (UX/UI DE DESIGN SYSTEM)
+   ========================================================================== */
+:root {
+    /* Paleta de Cores baseada na Cultura Coreana */
+    --vermelho-coral: #E74C3C;
+    --azul-profundo: #2C3E50;
+    --fundo-offwhite: #FAFAFA;
+    --rosa-suave: #F3D1D1;
+    --texto-grafite: #2C2C2C;
+    --branco-puro: #FFFFFF;
+    
+    /* Tipografia e Espaçamentos */
+    --fonte-principal: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --borda-raio: 12px;
+    --sombra-card: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+/* Reset básico para garantir consistência entre navegadores */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--fonte-principal);
+    background-color: var(--fundo-offwhite);
+    color: var(--texto-grafite);
+    line-height: 1.6;
+    padding: 40px 20px;
+}
+
+/* ==========================================================================
+   2. LAYOUT DA SEÇÃO DO BLOG (CONTAINER)
+   ========================================================================== */
+.blog-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 30px; /* Espaçamento vertical entre cada post */
+}
+
+/* ==========================================================================
+   3. ESTILIZAÇÃO DOS CARDS DE POST (.blog-post)
+   ========================================================================== */
+.blog-post {
+    background-color: var(--branco-puro);
+    border-radius: var(--borda-raio);
+    box-shadow: var(--sombra-card);
+    overflow: hidden; /* Garante que os cantos arredondados cortem o conteúdo interno */
+    border-left: 5px solid var(--vermelho-coral); /* Destaque elegante no tema Coral */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    padding: 25px;
+}
+
+/* Efeito sutil de UX ao passar o mouse (Hover effect) */
+.blog-post:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(231, 76, 60, 0.1); /* Sombra levemente avermelhada */
+}
+
+/* ==========================================================================
+   4. COMPONENTES INTERNOS DO CARD (CONTEÚDO)
+   ========================================================================== */
+
+/* Tags de Categoria (Música, Cultura, etc.) */
+.category-tag {
+    display: inline-block;
+    background-color: var(--rosa-suave);
+    color: var(--vermelho-coral);
+    font-size: 0.85rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border-radius: 20px;
+    margin-bottom: 15px;
+    letter-spacing: 0.5px;
+}
+
+/* Títulos dos Artigos */
+.blog-post h2 {
+    color: var(--azul-profundo);
+    font-size: 1.5rem;
+    margin-bottom: 12px;
+    font-weight: 700;
+}
+
+/* Parágrafos de Texto */
+.blog-post p {
+    color: var(--texto-grafite);
+    font-size: 1.05rem;
+    margin-bottom: 15px;
+    text-align: justify;
+}
+
+/* Remove a margem do último parágrafo para evitar espaços vazios no card */
+.blog-post p:last-child {
+    margin-bottom: 0;
+}
+
+/* Destacar conceitos estrangeiros (tags <em>) */
+.blog-post em {
+    font-style: italic;
+    color: var(--vermelho-coral);
+    font-weight: 600;
+}
+
+/* ==========================================================================
+   5. RESPONSIVIDADE (MOBILE-FIRST)
+   ========================================================================== */
+@media (max-width: 600px) {
+    body {
+        padding: 20px 10px;
+    }
+    
+    .blog-post {
+        padding: 20px;
+    }
+    
+    .blog-post h2 {
+        font-size: 1.3rem;
+    }
+}
